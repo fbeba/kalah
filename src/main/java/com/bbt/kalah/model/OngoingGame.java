@@ -24,6 +24,11 @@ public class OngoingGame extends Game {
         return this;
     }
 
+    @Override
+    public String getScore() {
+        return ("Score undetermined, game still in progress.");
+    }
+
     private Pit distributeStones(Pit startingPit) {
         var hand = startingPit.takeStones();
         var pitIndex = startingPit.getIndex();
@@ -103,11 +108,9 @@ public class OngoingGame extends Game {
     private void summarizeScore(Integer stonesRemainingOne, Integer stonesRemainingTwo) {
         final var homeOne = board.get(playerOne.getHomePitIndex());
         homeOne.putStones(stonesRemainingOne);
-        playerOne.setScore(homeOne.getStones());
 
         final var homeTwo = board.get(playerTwo.getHomePitIndex());
         homeTwo.putStones(stonesRemainingTwo);
-        playerTwo.setScore(homeTwo.getStones());
     }
 
     public static Builder builder() {

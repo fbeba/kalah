@@ -15,6 +15,8 @@ public abstract class Game {
 
     public abstract Game makeMove(int startingPitNumber);
 
+    public abstract String getScore();
+
     public BoardStatus getBoardStatus() {
         final var boardStatus = board.stream()
                 .collect(Collectors.toMap(

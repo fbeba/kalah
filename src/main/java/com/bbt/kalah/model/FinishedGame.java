@@ -12,9 +12,15 @@ public class FinishedGame extends Game {
 
     @Override
     public Game makeMove(int startingPitNumber) {
-        throw new GameAlreadyFinishedException(format("Game %d is already finished. Final score is %d-%d.",
+        throw new GameAlreadyFinishedException(format("Game %d is already finished. Final score is %s.",
                 id,
-                playerOne.getScore(),
-                playerTwo.getScore()));
+                getScore()));
+    }
+
+    @Override
+    public String getScore() {
+        return board.get(playerOne.getHomePitIndex()).getStones() +
+                "-" +
+                board.get(playerTwo.getHomePitIndex()).getStones();
     }
 }

@@ -5,18 +5,10 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
+import static com.bbt.kalah.model.GameState.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameMovesTest extends TestHelper {
-
-    @Test
-    public void newBoardCanBeCreated() {
-        // when
-        final var id = gamesService.setupNew();
-
-        //then
-        assertThat(gamesService.getGame(id)).isNotNull();
-    }
 
     @Test
     public void givenGame_whenPlayerTriesToStartFromOwnPit_moveIsAccepted() {
@@ -132,6 +124,6 @@ public class GameMovesTest extends TestHelper {
         gamesService.makeMove(id, 2);
 
         // then
-        assertThat(gamesService.getGame(id).getState()).isEqualTo(GameState.FINISHED);
+        assertThat(gamesService.getGame(id).getState()).isEqualTo(FINISHED);
     }
 }
