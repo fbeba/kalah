@@ -21,7 +21,6 @@ public class GamesService {
     private final Map<Integer, Game> games = new ConcurrentHashMap<>();
 
     private final BoardProvider boardProvider;
-    //private final PlayerProvider playerProvider;
 
     public Integer setupNew() {
         final var playerOne = Player.FIRST;
