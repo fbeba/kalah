@@ -1,15 +1,11 @@
 package com.bbt.kalah.service;
 
-import com.bbt.kalah.model.GameState;
+import com.bbt.kalah.model.Game;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.bbt.kalah.model.GameState.FINISHED;
-import static com.bbt.kalah.model.GameState.ONGOING;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameStatusTest extends TestHelper {
@@ -20,7 +16,7 @@ public class GameStatusTest extends TestHelper {
         final var id = gamesService.setupNew();
 
         //then
-        assertThat(gamesService.getGame(id).getState()).isEqualTo(ONGOING);
+        assertThat(gamesService.getGame(id).getState()).isEqualTo(Game.GameState.ONGOING);
     }
 
     @Test
@@ -74,7 +70,7 @@ public class GameStatusTest extends TestHelper {
         };
         final var id = setupGameWithCustomBoard(stoneQuantities);
         gamesService.makeMove(id, 2);
-        assertThat(gamesService.getGame(id).getState()).isEqualTo(FINISHED);
+        assertThat(gamesService.getGame(id).getState()).isEqualTo(Game.GameState.FINISHED);
 
         // when
         final var score = gamesService.getGame(id).getScore();

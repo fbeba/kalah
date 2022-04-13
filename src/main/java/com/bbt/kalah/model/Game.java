@@ -52,4 +52,8 @@ public abstract class Game {
         this.turn = that.turn;
         this.state = GameState.FINISHED;
     }
+
+    public enum GameState {
+        ONGOING, FINISHED
+    }
 }

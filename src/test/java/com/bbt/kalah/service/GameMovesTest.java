@@ -1,11 +1,10 @@
 package com.bbt.kalah.service;
 
-import com.bbt.kalah.model.GameState;
+import com.bbt.kalah.model.Game;
 import org.junit.jupiter.api.Test;
 
 import java.util.Map;
 
-import static com.bbt.kalah.model.GameState.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GameMovesTest extends TestHelper {
@@ -124,6 +123,6 @@ public class GameMovesTest extends TestHelper {
         gamesService.makeMove(id, 2);
 
         // then
-        assertThat(gamesService.getGame(id).getState()).isEqualTo(FINISHED);
+        assertThat(gamesService.getGame(id).getState()).isEqualTo(Game.GameState.FINISHED);
     }
 }
