@@ -1,7 +1,6 @@
 package com.bbt.kalah.service;
 
 import com.bbt.kalah.model.Player;
-import com.bbt.kalah.model.PlayerOrder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,21 +17,14 @@ class TestHelper {
 
     @Spy
     protected BoardProvider boardProvider;
-    @Spy
-    protected PlayerProvider playerProvider;
 
     @InjectMocks
     protected GamesService gamesService;
 
     @BeforeEach
     public void setup() {
-        playerOne = new Player(PlayerOrder.FIRST);
-        playerTwo = new Player(PlayerOrder.SECOND);
-
-        when(playerProvider.createPlayer(PlayerOrder.FIRST))
-                .thenReturn(playerOne);
-        when(playerProvider.createPlayer(PlayerOrder.SECOND))
-                .thenReturn(playerTwo);
+        playerOne = Player.FIRST;
+        playerTwo = Player.SECOND;
     }
 
     protected int setupGameWithCustomBoard(int[] boardLayout) {

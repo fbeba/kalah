@@ -4,7 +4,7 @@ import com.bbt.kalah.exception.GameDoesNotExistException;
 import com.bbt.kalah.model.BoardStatus;
 import com.bbt.kalah.model.Game;
 import com.bbt.kalah.model.OngoingGame;
-import com.bbt.kalah.model.PlayerOrder;
+import com.bbt.kalah.model.Player;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,11 +21,11 @@ public class GamesService {
     private final Map<Integer, Game> games = new ConcurrentHashMap<>();
 
     private final BoardProvider boardProvider;
-    private final PlayerProvider playerProvider;
+    //private final PlayerProvider playerProvider;
 
     public Integer setupNew() {
-        final var playerOne = playerProvider.createPlayer(PlayerOrder.FIRST);
-        final var playerTwo = playerProvider.createPlayer(PlayerOrder.SECOND);
+        final var playerOne = Player.FIRST;
+        final var playerTwo = Player.SECOND;
         final var game = OngoingGame.builder()
                 .forPlayers(playerOne, playerTwo)
                 .onBoard(boardProvider.createBoard(playerOne, playerTwo))

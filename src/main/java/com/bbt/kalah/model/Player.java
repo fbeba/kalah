@@ -1,15 +1,13 @@
 package com.bbt.kalah.model;
 
-public class Player {
+public enum Player {
+
+    FIRST(6), SECOND(13);
 
     private final int homePitIndex;
 
-    public Player(PlayerOrder order) {
-        this.homePitIndex = determineHomePitIndex(order);
-    }
-
-    private int determineHomePitIndex(PlayerOrder order) {
-        return order.equals(PlayerOrder.FIRST) ? 6 : 13;
+    Player(int homePitIndex) {
+        this.homePitIndex = homePitIndex;
     }
 
     public int getHomePitIndex() {
