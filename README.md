@@ -4,7 +4,7 @@
 In order to run the application you will need Java 11 installed. Application already provides maven wrapper.
 
 ## How to run
-To start the server execute following from root folder:
+In order to start the server execute following command from root folder:
 
 `./mvnw spring-boot:run`
 
@@ -23,9 +23,9 @@ If you're reading this you're clearly a pro, so following is just to speed thing
 ## How to play
 Application exposes three endpoints for playing Kalah:
 
-### Create game
+### Creating the game
 Endpoint available under
-`http://localhost:8080/games`, it accepts POST requests to setup game. 
+`http://localhost:8080/games`, it accepts POST requests to setup the game. 
 
 Responds with following data:
 
@@ -34,9 +34,12 @@ Responds with following data:
 "uri": "http://localhost:8080/games/7494"
 }`
 
-### Moving
+### Making move
 Endpoint available under
-`http://localhost:8080/games/{gameId}/pits/{pitId}`, it accepts PUT requests containing valid `gameId` and `pitId` which has to be player's own non-home pit which contains at least one stone. 
+
+`http://localhost:8080/games/{gameId}/pits/{pitId}`, 
+
+it accepts PUT requests containing valid `gameId` and `pitId` which has to be player's own non-home pit which contains at least one stone. 
 
 Responds with game data including board status:
 
@@ -46,7 +49,7 @@ Responds with game data including board status:
 "status": {"1": "6", "2": "6", "3": "6", "4": "6", "5": "0", "6": "7", "7": "1", "8": "7", "9": "7", "10": "7", "11": "7", "12": "6", "13": "6", "14": "0"}
 }`
 
-### Checking board
+### Checking the board
 Endpoint available under
 `http://localhost:8080/games/{gameId}`, it accepts GET requests containing valid `gameId` and returns its current board state. It executes no change to the game.
 
@@ -58,7 +61,7 @@ Responds with same as move request - game data including board status:
 "status": {"1": "6", "2": "6", "3": "6", "4": "6", "5": "0", "6": "7", "7": "1", "8": "7", "9": "7", "10": "7", "11": "7", "12": "6", "13": "6", "14": "0"}
 }`
 
-###Example curl commands:
+### Example curl commands:
 
 `curl 
 --header "Content-Type: application/json" \
