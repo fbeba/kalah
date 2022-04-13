@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 @Service
 class BoardProvider {
 
-    private int[] defaultStoneSetup = new int[]{
+    private final int[] defaultStoneSetup = new int[]{
             6, 6, 6, 6, 6, 6,   0,
             6, 6, 6, 6, 6, 6,   0
     };

@@ -1,7 +1,6 @@
 package com.bbt.kalah.application;
 
 import com.bbt.kalah.service.GamesService;
-import com.bbt.kalah.model.Game;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
